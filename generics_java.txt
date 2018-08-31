@@ -1,0 +1,110 @@
+
+Number <- Integer
+
+Integer r1 = new Integer(2);
+Number n1 = r1;
+
+Number[] <- Integer[]
+
+Integer[] r2 = new Integer[]{1,2,3};
+Number[] n2 = r2;
+
+n2[0] = new Float(3.4);
+
+//---------------------------------------------
+
+List<Number> X<-X List<Integer>
+
+class Message<E>{
+	E message;
+	
+	void set(E obj){ message = obj; }
+}
+
+class Message{
+	Object message;
+	
+	void set(Object obj){ message = obj; }
+}
+
+Message<String> o1 = new Message<String>();
+o1.set("aaaa");
+o1.set(new Integer(2));
+
+Message<Student> o2 = new Message<Student>();
+
+//---------------------------------------
+List<Integer> li = new ArrayList<Integer>();
+List<Number> ln = li; // ERROR
+
+li.add(new Float(3.14));
+
+Integer[] m1 = new Integer[]{6,8};
+Object[] o1 =m1;
+o1[0] = new String();
+
+Object o = new Student();
+o.f();
+
+////////////////////////////////////////
+
+List<? extends Doctor> list1 = 
+		new ArrayList<MedicalStaff>(); 
+List<? extends Doctor> list2 = 
+		new ArrayList<Doctor>();
+List<? extends Doctor> list3 = 
+		new ArrayList<HeadDoctor>();
+		
+		m(list1);
+		m(list2);
+		m(list3);
+		
+		
+public static void m(List<? extends Doctor> list){
+
+Doctor -> Doctor, HeadDoctor
+HeadDoctor -> HeadDoctor
+
+Doctor d = list.get(0);
+}
+
+//////////////////////////////////////////////
+
+public interface Collection<E> extends Iterable<E> {
+    
+    boolean add(E e);
+
+  
+    boolean containsAll(Collection<?> c);
+
+   
+    boolean addAll(Collection<? extends E> c);
+	
+///////////////////////////////////////////////
+
+List<HeadDoctor> ref1 = new ArrayList<HeadDoctor>();
+//add
+
+
+
+List<Doctor> ref2 = new ArrayList<Doctor>();
+//add
+List<HeadDoctor> ref3 =new ArrayList<HeadDoctor>();
+ref3.addAll(ref2);
+
+ref1.containsAll(ref2);
+
+ref2.addAll(ref3);
+
+////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+ 
